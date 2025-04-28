@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.api.category.Basics.link.generated-index.description": {
+    "message": "5分钟去学校更多",
+    "description": "The generated-index page description for category Basics in sidebar api"
+  },
+  "sidebar.api.category.Test2": {
+    "message": "展开说说",
+    "description": "The label for category Test2 in sidebar api"
+  }
+}

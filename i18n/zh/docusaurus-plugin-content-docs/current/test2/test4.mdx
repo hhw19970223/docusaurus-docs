@@ -1,0 +1,113 @@
+---
+sidebar_position: 6
+---
+
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+# Mintlify
+
+- [后台管理地址](https://dashboard.mintlify.com/)
+
+- [部署地址](https://docs.hhw31.com/)
+
+- [docs.json 配置文档](https://mintlify.com/docs/core-concepts/settings)
+
+## 文档配置结构
+
+```json
+    "languages": [
+      {
+        "language": "en",
+        "tabs": [
+          {
+            "tab": "Docs",
+            "groups": [
+              {
+                "group": "Get Started",
+                "pages": [
+                  "en/docs/introduction",
+                  "en/docs/quickstart",
+                  "en/docs/development"
+                ]
+              },
+              {
+                "group": "Essentials",
+                "pages": [
+                  "en/docs/normal/markdown",
+                  "en/docs/normal/code",
+                  "en/docs/normal/images",
+                  "en/docs/normal/settings",
+                  "en/docs/normal/navigation",
+                  "en/docs/normal/reusable-snippets"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API",
+            "groups": [
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "en/api/introduction"
+                ]
+              },
+              {
+                "group": "Endpoint Examples",
+                "pages": [
+                  "en/api/endpoint/get",
+                  "en/api/endpoint/create",
+                  "en/api/endpoint/delete",
+                  "en/api/endpoint/webhook"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+```
+
+## 后台管理部署
+
+- 项目发布到github，并且设置权限
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/mintlify/github.png'),
+    dark: useBaseUrl('/img/mintlify/github.png'),
+  }}
+/>
+
+- 设置跳转域名
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/mintlify/build.png'),
+    dark: useBaseUrl('/img/mintlify/build.png'),
+  }}
+/>
+
+## 后台管理在线编辑
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/mintlify/edit.png'),
+    dark: useBaseUrl('/img/mintlify/edit.png'),
+  }}
+/>
+
+## 定价功能
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/mintlify/plan.png'),
+    dark: useBaseUrl('/img/mintlify/plan.png'),
+  }}
+/>
+
