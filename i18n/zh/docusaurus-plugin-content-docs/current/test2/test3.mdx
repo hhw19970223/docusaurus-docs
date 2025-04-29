@@ -1,6 +1,10 @@
 ---
 sidebar_position: 5
+comment: true
 ---
+
+import ThemedImage from '@theme/ThemedImage';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Docusaurus
 
@@ -9,3 +13,44 @@ sidebar_position: 5
 - [docusaurus.config.ts 配置文档](https://docusaurus.io/zh-CN/docs/next/api/docusaurus-config)
 
 
+## 可以自定义添加评论组件
+
+- 自定义文档结构
+
+```shell
+// 生成自定义文档目录结构
+yarn run swizzle @docusaurus/theme-classic DocItem/Layout -- --eject --typescript^C
+```
+
+``` tsx
+<div className="row">
+  <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
+    <ContentVisibility metadata={metadata} />
+    <DocVersionBanner />
+    <div className={styles.docItemContainer}>
+      <article>
+        <DocBreadcrumbs />
+        <DocVersionBadge />
+        {docTOC.mobile}
+          DocItemContent>{children}</DocItemContent>
+        <DocItemFooter />
+      </article>
+      <DocItemPaginator />
+      // 底部评论组件
+      // highlight-next-line
+      <Comment />
+    </div>
+  </div>
+  {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
+</div>
+```
+
+- github 开启评论权限绑定giscus： https://giscus.app/
+
+<ThemedImage
+  alt="Docusaurus themed image"
+  sources={{
+    light: useBaseUrl('/img/docusaurus/setting.png'),
+    dark: useBaseUrl('/img/docusaurus/setting.png'),
+  }}
+/>

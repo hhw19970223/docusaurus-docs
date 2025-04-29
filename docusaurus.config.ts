@@ -69,15 +69,15 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  clientModules: [require.resolve('./src/clientModules/routeModules.ts')],
+  clientModules: [require.resolve('./src/client-modules/routeModules.ts')],
   themeConfig: {
     giscus: {
-      theme: 'light_high_contrast',
-      darkTheme: 'dark_tritanopia',
-      repo: 'xxx',
-      repoId: 'xxx',
-      category: 'Announcements',
-      categoryId: 'xxx'
+      theme: 'preferred_color_scheme',
+      darkTheme: 'transparent_dark',
+      repo: 'hhw19970223/docusaurus-docs',
+      repoId: 'R_kgDOOhCF_w',
+      category: 'Q&A',
+      categoryId: 'DIC_kwDOOhCF_84CpjFd'
     },
     docs: {
       /** 定义首选文档版本的浏览器持久性。 */
@@ -148,7 +148,18 @@ const config: Config = {
       ],
     },
     prism: {
-      darkTheme: prismThemes.dracula,
+      magicComments: [
+        {
+          className: 'theme-code-block-highlighted-line',
+          line: 'highlight-next-line',
+          block: { start: 'highlight-start', end: 'highlight-end' },
+        },
+        {
+          className: 'code-block-error-line',
+          line: 'error-next-line',
+          block: { start: 'error-start', end: 'error-end' },
+        },
+      ],
     },
 
   } satisfies Preset.ThemeConfig,

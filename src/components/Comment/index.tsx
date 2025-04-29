@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef } from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import Giscus, { GiscusProps } from '@giscus/react';
 import { useThemeConfig, useColorMode, ThemeConfig } from '@docusaurus/theme-common';
@@ -11,22 +11,13 @@ export const Comment = forwardRef<HTMLDivElement>((_props, ref) => {
   const { colorMode } = useColorMode();
   const { theme = 'light', darkTheme = 'dark_dimmed' } = giscus;
   const giscusTheme = colorMode === 'dark' ? darkTheme : theme;
-  const [routeDidUpdate, setRouteDidUpdate] = useState(false);
+  
+  let lang = window.location.pathname.split('/')[1];
 
-  useEffect(() => {
-    function eventHandler() {
-      setRouteDidUpdate(true);
-    }
-
-    window.emitter?.on('onRouteDidUpdate', eventHandler);
-
-    return () => {
-      window.emitter?.off('onRouteDidUpdate', eventHandler);
-    };
-  }, []);
-
-  if (!routeDidUpdate) {
-    return null;
+  if (lang !== 'zh') {
+    lang = 'en'
+  } else {
+    lang = 'zh-CN'
   }
 
   return (
@@ -35,12 +26,12 @@ export const Comment = forwardRef<HTMLDivElement>((_props, ref) => {
         <div ref={ref} id="comment" style={{ paddingTop: 50 }}>
           <Giscus
             id="comments"
-            mapping="title"
+            mapping={ window.location.pathname }
             strict="1"
             reactionsEnabled="1"
             emitMetadata="0"
             inputPosition="bottom"
-            lang="zh-CN"
+            lang={lang}
             loading="lazy"
             {...giscus}
             theme={giscusTheme}

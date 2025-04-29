@@ -2,7 +2,7 @@ import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {useWindowSize} from '@docusaurus/theme-common';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
-// import DocItemPaginator from '@theme/DocItem/Paginator';
+import DocItemPaginator from '@theme/DocItem/Paginator';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import DocVersionBadge from '@theme/DocVersionBadge';
 import DocItemFooter from '@theme/DocItem/Footer';
@@ -44,7 +44,8 @@ export default function DocItemLayout({children}: Props): ReactNode {
   const docTOC = useDocTOC();
   const {metadata} = useDoc();
   const { frontMatter } = useDoc();
-  console.log(frontMatter);
+  // @ts-ignore 用户自定义配置
+  const comment = frontMatter.comment;
 
   return (
     <div className="row">
@@ -59,9 +60,8 @@ export default function DocItemLayout({children}: Props): ReactNode {
             <DocItemContent>{children}</DocItemContent>
             <DocItemFooter />
           </article>
-          {/* <DocItemPaginator /> */}
-          /* highlight-add-line */
-          {frontMatter.hideComment && <Comment />}
+          <DocItemPaginator />
+          { comment ? <Comment /> : null }
         </div>
       </div>
       {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}

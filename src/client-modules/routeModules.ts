@@ -9,8 +9,16 @@ if (ExecutionEnvironment.canUseDOM) {
 
 export function onRouteDidUpdate() {
   if (ExecutionEnvironment.canUseDOM) {
-    setTimeout(() => {
-      window.emitter.emit('onRouteDidUpdate');
-    });
+    // setTimeout(() => {
+    //   window.emitter.emit('onRouteDidUpdate');
+    // });
+  }
+}
+
+export function onClientEntry() {
+  if (ExecutionEnvironment.canUseDOM) {
+    // setTimeout(() => {
+    //   window.emitter.emit('onRouteDidUpdate');
+    // });
   }
 }
